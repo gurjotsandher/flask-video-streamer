@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask WebSocket Streaming</title>
+</head>
+<body>
+    <h1>Live Stream Viewer</h1>
+    <img id="image1" alt="Video Feed" style="max-width: 100%; height: auto;">
+
+    <!-- Load Latest Socket.IO Client Library -->
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+
+    <script type="text/javascript">
+        var socket = io.connect(window.location.origin, {
+            transports: ['websocket', 'polling']
+        });
+
+        socket.on('connect', function() {
+            console.log("Connected to WebSocket server.");
+            socket.emit('check', { data: 'User Connected' });
+        });
+
+        socket.on('image', function(msg) {
+            console.log("Received a frame.");
+            document.getElementById('image1').src = "data:image/jpeg;base64," + msg;
+        });
+
+        socket.on('connect_error', function(error) {
+            console.error("Connection Error:", error);
+        });
+
+        socket.on('disconnect', function() {
+            console.warn("Disconnected from WebSocket server.");
+        });
+    </script>
+</body>
+</html>

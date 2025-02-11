@@ -1,0 +1,58 @@
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+.virtualenv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Distribution files
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Logs and database
+*.log
+*.sqlite3
+*.db
+
+# Django/Pytest/Celery specific
+*.mo
+*.pot
+celerybeat-schedule
+*.pid
+*.cover
+.coverage
+htmlcov/
+*.py,cover
+
+# Cache
+.cache/
+nosetests.xml
+coverage.xml
+*.pytest_cache/
+__pypackages__/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Docker
+docker-compose.override.yml
+
+# PyCharm
+*.iml
+workspace.xml
+
+# AWS credentials (if using AWS SDK)
+*.pem
