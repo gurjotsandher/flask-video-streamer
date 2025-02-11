@@ -27,6 +27,13 @@ Follow these steps to set up and run the **Real-Time Video Streaming with Flask-
 
 ---
 
+## **📽️ UI**  
+
+Add to **any project**.
+![ui.png](ui-demo/ui.png)
+
+---
+
 ### **1️⃣ Prerequisites**  
 
 Ensure you have the following installed on your system:  
