@@ -6,13 +6,18 @@
     <title>Live Stream Viewer</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-900 text-white flex items-center justify-center h-screen">
+<body class="bg-gray-900 text-white flex flex-col items-center justify-center h-screen">
     <div class="text-center">
         <h1 class="text-3xl font-bold mb-4">📡 Live Stream Viewer</h1>
         <div class="border-4 border-gray-700 rounded-lg overflow-hidden shadow-lg">
-            <img id="image1" alt="Video Feed" class="w-full h-auto bg-black">
+            <img id="image1" alt="Video Feed" class="w-full h-auto bg-black max-w-4xl">
         </div>
-        <p class="mt-4 text-gray-400">index</p>
+        <div class="mt-4 space-x-2">
+            <button onclick="changeSize('small')" class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded">Small</button>
+            <button onclick="changeSize('medium')" class="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded">Medium</button>
+            <button onclick="changeSize('large')" class="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded">Large</button>
+        </div>
+        <p class="mt-4 text-gray-400">Created By Gurjot</p>
     </div>
 
     <!-- Load Latest Socket.IO Client Library -->
@@ -39,6 +44,17 @@
         socket.on('disconnect', function() {
             console.warn("Disconnected from WebSocket server.");
         });
+
+        function changeSize(size) {
+            var img = document.getElementById('image1');
+            if (size === 'small') {
+                img.className = "w-96 h-auto bg-black";
+            } else if (size === 'medium') {
+                img.className = "w-full max-w-6xl bg-black";
+            } else if (size === 'large') {
+                img.className = "w-screen max-w-full h-[900px] bg-black";
+            }
+        }
     </script>
 </body>
 </html>

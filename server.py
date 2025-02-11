@@ -14,7 +14,7 @@ clients = {}
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('video-stream.html')
 
 @sio.event
 def connect(sid, environ):
